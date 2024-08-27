@@ -13,10 +13,11 @@ pip install -r requirements.txt
 ```
 
 ## 启动服务器
+> **注意运行前请配置config\config.json,具体操作教程见config目录下readme.md**
+> 
 ```bash
 python manage.py runserver
 ```
-> **注意运行前请配置config.json,详情见config目录下readme.md**
 
 ## 创建管理员用户
 
