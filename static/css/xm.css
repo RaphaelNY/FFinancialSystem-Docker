@@ -122,103 +122,103 @@ body {
     font-size: .9rem;
 }
 
-.card--welcome {
+{
     z-index: 3;
 }
 
-.card--welcome .card-title {
+.card-title-r {
     color: #ee9ca7;
 }
 
-.card--welcome .btn-wrap {
+.btn-wrap {
     display: flex;
     flex-direction: column;
 }
 
-.card--welcome .btn {
+.btn {
     color: #fff;
     transition: all .3s;
 }
 
-.card--welcome .btn:hover {
+.btn:hover {
     background-color: rgba(238, 156, 167, .25);
     font-weight: bold;
 }
 
-.card--welcome .btn-register {
+.btn-register {
     margin-bottom: .8em;
     background-color: #ee9ca7;
 }
 
-.card--welcome .btn-register:hover {
+.btn-register:hover {
     color: #ee9ca7;
 }
 
-.card--welcome .btn-login {
+.btn-login {
     background-color: #a7bfe8;
 }
 
-.card--register .card-title {
-    color: #ee9ca7;
+.card-title-l {
+    color: #a7bfe8;
 }
 
-.card--register .badge {
+.badge {
     background-color: #ee9ca7;
 }
 
-.card--register .btn {
+.btn {
     background-color: #ee9ca7;
 }
 
-.card--register .btn:hover {
+.btn:hover {
     background-color: #fff;
     color: #ee9ca7 !important;
     font-weight: bold;
     border: 2px solid rgba(238, 156, 167, .25);
 }
 
-.card--register .btn:focus {
+.btn:focus {
     box-shadow: 0 0 0 0.2rem rgba(238, 156, 167, .25);
 }
 
-.card--register .form-control {
+.form-control {
     color: #ee9ca7;
     border-color: rgba(238, 156, 167, .25);
 }
 
-.card--register .form-control:focus {
+.form-control:focus {
     box-shadow: 0 0 0 0.2rem rgba(238, 156, 167, .25);
 }
 
-.card--login .card-title {
-    color: #a7bfe8;
+.card-title {
+    color: #000000;
 }
 
-.card--login .badge {
+.badge {
     background-color: #a7bfe8;
 }
 
-.card--login .btn {
+.btn {
     background-color: #a7bfe8;
 }
 
-.card--login .btn:hover {
+.btn:hover {
     background-color: #fff;
-    color: #a7bfe8 !important;
+    color: #B65155 !important;
     font-weight: bold;
     border: 2px solid rgba(167, 191, 232, .25);
 }
 
-.card--login .btn:focus {
+.btn:focus {
     box-shadow: 0 0 0 0.2rem rgba(167, 191, 232, .25);
 }
 
-.card--login .form-control {
-    color: #a7bfe8;
+.form-control {
+    color: #74e666;
     border-color: rgba(167, 191, 232, .25);
 }
 
-.card--login .form-control:focus {
+.form-control:focus {
     box-shadow: 0 0 0 0.2rem rgba(167, 191, 232, .25);
 }
 
@@ -252,4 +252,46 @@ body.is-login {
     -webkit-transform: translate(-50%, -50%);
             transform: translate(-50%, -50%);
     z-index: 5;
+}
+
+.facebook-btn-L,
+.google-btn-L,
+.twitter-btn-L,
+.github-btn-L {
+    background-color: rgba(29, 161, 242, 0.3);
+    border-color: rgba(29, 161, 242, 0.3); /* 边框颜色也改成相同的粉色和透明度 */
+}
+
+.facebook-btn-L:hover,
+.google-btn-L:hover,
+.twitter-btn-L:hover,
+.github-btn-L:hover {
+    background-color: rgba(29, 161, 242, 0.8); /* Twitter的颜色加深 */
+    border-color: rgba(29, 161, 242, 0.8); /* 边框颜色也改成相同的粉色和透明度 */
+}
+
+.facebook-btn-R,
+.google-btn-R,
+.github-btn-R,
+.twitter-btn-R {
+    background-color: rgba(255, 182, 193, 0.3);
+    border-color: rgba(255, 182, 193, 0.3);
+}
+
+.btn-register-r {
+    background-color: #ee9ca7;
+    border-color: #ee9ca7;
+}
+
+.btn-register-r:hover {
+    border-color: rgb(255, 182, 193); /* 边框颜色也改成相同的粉色和透明度 */
+    color: #ffffff;
+}
+
+.facebook-btn-R:hover,
+.google-btn-R:hover,
+.twitter-btn-R:hover,
+.github-btn-R:hover {
+    background-color: rgba(250, 131, 149, 0.8); /* 粉色，透明度设为0.5 */
+    border-color: rgba(250, 131, 149, 0.8); /* 边框颜色也改成相同的粉色和透明度 */
 }
