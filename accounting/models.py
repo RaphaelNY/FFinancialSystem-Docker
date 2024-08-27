@@ -2,10 +2,10 @@ from django.db import models
 from django.utils import timezone
 
 
-class NormalUser(models.Model):
+class NormalUser(models.Model): #用户名称
     name = models.CharField(max_length=100)
 
-class Currency(models.Model):
+class Currency(models.Model): #货币种类
     name = models.CharField("货币名称", max_length=100)
     icon = models.CharField("货币图标", max_length=100)
 
@@ -16,7 +16,7 @@ class Currency(models.Model):
         ordering = ['id']
 
 
-class Account(models.Model):
+class Account(models.Model): #账户类型，如支付宝余额、余额宝余额、银行卡余额等
     name = models.CharField("账户类型名", max_length=100)
     amount = models.DecimalField("账户余额" ,max_digits=8, decimal_places=2)
     currency = models.ForeignKey(Currency, on_delete=models.SET_NULL, null=True, default=1)
@@ -31,7 +31,7 @@ class Account(models.Model):
         ordering = ['created_date']
 
 
-class Category(models.Model):
+class Category(models.Model): #记录大类
     CATEGORY_TYPES = (
        ("收入", "income"),
        ("支出", "expense")
@@ -47,7 +47,7 @@ class Category(models.Model):
         ordering = ['id']
 
 
-class SubCategory(models.Model):
+class SubCategory(models.Model): #子类，用于记录细分
     name = models.CharField(max_length=100)
     icon = models.CharField(max_length=100)
     parent = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
@@ -59,7 +59,7 @@ class SubCategory(models.Model):
         ordering = ['id']
 
 
-class HistoryRecord(models.Model):
+class HistoryRecord(models.Model): #记录表
     username = models.ForeignKey(NormalUser, on_delete=models.SET_NULL, null=True)
     account = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True, default=1)
     time_of_occurrence = models.DateTimeField(default=timezone.now)

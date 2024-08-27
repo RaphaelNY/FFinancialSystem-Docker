@@ -20,6 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
+# 将敏感数据保存到本地json文件中
 with open(os.path.join(BASE_DIR, "config", "config.json"), "r") as store_file:
     STORED = json.load(store_file)
 
