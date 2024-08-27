@@ -18,8 +18,10 @@ from django.urls import path, include
 
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('accounting/', include('accounting.urls')),
     path('admin/', admin.site.urls),
+    path('', RedirectView.as_view(url='/accounting/login/', permanent=False)),  # 根URL重定向到登录页面
 ]
