@@ -8,6 +8,7 @@
 **Python版本为3.8.10**
 
 ```bash
+#在你的虚拟环境中安装依赖
 pip install -r requirements.txt
 ```
 
