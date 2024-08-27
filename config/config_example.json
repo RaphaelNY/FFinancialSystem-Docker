@@ -1,0 +1,6 @@
+{
+  "secret_key": "your_secret_key",
+  "db_name": "your_database_name",
+  "mysql_usr": "user_name",
+  "mysql_pass": "user_password"
+}
