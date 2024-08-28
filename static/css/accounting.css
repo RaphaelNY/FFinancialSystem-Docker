@@ -1,3 +1,147 @@
 #top-container {
   padding: 50px;
 }
+
+/* #worker区域的容器样式 */
+#worker {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    background: #ffffff;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 将文本固定在页面顶部 */
+.text-container {
+    position: absolute;
+    top: 20px; /* 距离顶部的距离 */
+    width: 100%;
+    text-align: center; /* 文本居中对齐 */
+}
+
+#worker .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 320px;
+    margin-bottom: auto;
+}
+
+#worker .container .card {
+    position: absolute;
+    width: 240px;
+    height: 360px;
+    background-color: #5e5cfc;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgba(0, 0, 0, 0);
+    font-size: 3em;
+    font-weight: 700;
+    border: 10px solid rgba(0, 0, 0, 0.1);
+    transition: .5s;
+    transform-origin: 50% 100%;
+    filter: hue-rotate(calc(var(--i) * 60deg));
+}
+
+/* 默认隐藏 .info 部分 */
+#worker .container .card .info {
+    opacity: 0;
+}
+
+/* 卡片悬停和展开时显示 .info 部分 */
+#worker .container:hover .card .info {
+    opacity: 1;
+}
+
+/* 新增：左键点击后保持显示 .info 部分 */
+#worker .card.show-info .info {
+    opacity: 1 !important;
+}
+
+#worker .container:hover .card {
+    transform: rotate(calc(var(--i) * 5deg))
+               translate(calc(var(--i) * 200px), -84px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+    opacity: 1;
+}
+
+#worker .container:hover .card:not(:hover) {
+    transform: rotate(calc(var(--i) * 5deg))
+               translate(calc(var(--i) * 200px), -84px)
+               scale(0.9);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.25);
+    opacity: 0.7;
+}
+
+#worker .container .card:hover {
+    translate: calc(var(--i) * 20px) -50px;
+    z-index: 999;
+}
+
+#worker .card.centered {
+    transform: translate(0, 20%) scale(1.5) !important;
+    z-index: 1000;
+    opacity: 1;
+}
+
+#worker .card.hidden {
+    opacity: 0;
+}
+
+/* 卡片信息样式 */
+#worker .card .info {
+    position: absolute;
+    top: 10%; /* 将 info 移动到卡片顶部稍下位置 */
+    text-align: center;
+    color: white;
+    font-size: 0.8em; /* 调整字体大小 */
+    display: flex;
+    flex-direction: column; /* 头像和文本垂直排列 */
+    align-items: center; /* 头像和文本居中对齐 */
+    z-index: 10; /* 确保在卡片之上 */
+}
+
+/* 头像样式 */
+#worker .card .info .avatar {
+    width: 100px; /* 头像大小 */
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 5px; /* 头像和用户名之间的间距 */
+    z-index: 999; /* 确保在卡片之上 */
+    background-color: transparent;
+}
+
+/* 负责的工作描述样式 */
+#worker .card .info p {
+    font-size: 0.7em; /* 调整负责工作的字体大小 */
+    margin-top: 5px;
+}
+
+/* GitHub 按钮样式 */
+#worker .card .github-btn {
+    padding: 8px 12px; /* 增加按钮的padding */
+    font-size: 1.2em; /* 增大图标和文字的大小 */
+    background-color: rgba(51, 51, 51, 0); /* 设置背景颜色 */
+    color: white; /* 设置文字颜色 */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* GitHub 按钮悬停样式 */
+#worker .card .github-btn:hover {
+    background-color: #555; /* 更改悬停时的背景颜色 */
+    color: white; /* 保持文字颜色 */
+}
