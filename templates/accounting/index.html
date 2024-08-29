@@ -56,6 +56,7 @@
                         <div id="account-overview" align="center">
                             {% for account in accounts %}
                             <span>{{ account.name }}</span>
+                            <span>{{ account.icon }}</span>
                             <span>{{ account.amount }}</span>
                             <hr width="60%"/>
                             {% endfor %}
@@ -68,6 +69,7 @@
                         <span>{{ sub_category.parent }}</span>
                         <span>-></span>
                         <span>{{ sub_category.name }}</span>
+                        <span>{{ sub_category.icon }}</span>
                         <hr width="60%"/>
                         {% endfor %}
                     </div>
