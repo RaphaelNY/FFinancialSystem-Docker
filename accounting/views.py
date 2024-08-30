@@ -1,5 +1,4 @@
 from django.shortcuts import render, redirect
-
 from django.http import HttpResponse
 from django.http import JsonResponse
 from django.contrib.auth.models import User
@@ -135,35 +134,6 @@ def record_income_expense(request):
 def login(request):
     return  render(request, 'accounting/login.html')
 
-    #登录
-def login_in(request):
-    if request.method == 'GET':
-        return render(request, 'accounting/login.html')
-
-    elif request.method == 'POST':
-        user_name = request.POST.get('username', '')
-        pwd = request.POST.get('password', '')
-
-        user = authenticate(username=user_name, password=pwd)
-
-        if user:
-            if user.is_active:
-                auth_login(request, user)
-                return redirect('/accounting/')
-            else:
-                return render(request, 'accounting/login.html', {'login_failed': True, 'msg': '用户未激活'})
-        else:
-            # 设置错误消息，并返回登录页面
-            return render(request, 'accounting/login.html', {'login_failed': True, 'msg': '账户名或密码错误，请重新登录'})
-
-    # 处理其他请求方法
-    return JsonResponse({'code': 405, 'msg': '方法不允许'}, status=405)
-
-
-def logout_(request):
-    logout(request)
-    return redirect('/accounting/login')
-
 #图表
 from django.shortcuts import render
 from .models import HistoryRecord, Category
@@ -230,3 +200,32 @@ def charts_view(request):
 
     return render(request, 'accounting/charts.html', context)
 
+
+    #登录
+def login_in(request):
+    if request.method == 'GET':
+        return render(request, 'accounting/login.html')
+
+    elif request.method == 'POST':
+        user_name = request.POST.get('username')
+        pwd = request.POST.get('password')
+
+        user = authenticate(username=user_name, password=pwd)
+
+        if user:
+            if user.is_active:
+                auth_login(request, user)
+                return redirect('/accounting/')
+            else:
+                return render(request, 'accounting/login.html', {'login_failed': True, 'msg': '用户未激活'})
+        else:
+            # 设置错误消息，并返回登录页面
+            return render(request, 'accounting/login.html', {'login_failed': True, 'msg': '账户名或密码错误，请重新登录'})
+
+    # 处理其他请求方法
+    return JsonResponse({'code': 405, 'msg': '方法不允许'}, status=405)
+
+
+def logout_(request):
+	logout(request)
+	return redirect('/accounting/login')
