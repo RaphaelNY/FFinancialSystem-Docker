@@ -2,6 +2,37 @@
   padding: 50px;
 }
 
+body {
+    background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+    transition: transform 0.35s ease-in-out;
+    position: relative; /* Needed for the ::before pseudo-element */
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/static/img/back2.png"); /* Background image */
+    background-repeat: repeat; /* Repeat image */
+    background-size: 300px 300px; /* Image size */
+    background-position: 0 0; /* Image starts at top-left */
+    opacity: 1; /* Set opacity to desired level */
+    animation: scrollBackground 8s linear infinite; /* Animation for the image */
+    z-index: -1; /* Ensure it's behind content */
+}
+
+@keyframes scrollBackground {
+    0% {
+        background-position: 0 0; /* Image starts at top-left, gradient initial position */
+    }
+    100% {
+        background-position: 300px 300px; /* Image ends at bottom-right, gradient initial position */
+    }
+}
+
 /* #worker区域的容器样式 */
 #worker {
     display: flex;
@@ -9,9 +40,33 @@
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    background: #ffffff;
+    background: rgba(255, 255, 255, 0);
     overflow: hidden;
     position: relative;
+}
+
+.simple-text-card {
+    background: rgba(255, 255, 255, 0.4); /* 白色背景，带有透明度 */
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px); /* 毛玻璃效果，数值越大模糊度越高 */
+    -webkit-backdrop-filter: blur(10px); /* Safari 支持 */
+    transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+    max-width: 300px;
+    margin: 20px auto;
+    text-align: center;
+}
+
+.simple-text-card h3 {
+    margin-bottom: 10px;
+    font-size: 24px;
+}
+
+.simple-text-card p {
+    margin: 0;
+    font-size: 16px;
+    color: #555;
 }
 
 /* 将文本固定在页面顶部 */
@@ -37,7 +92,7 @@
     position: absolute;
     width: 240px;
     height: 360px;
-    background-color: #5e5cfc;
+    background-color: rgba(94, 92, 252, 0.6); /* 添加透明度以增强毛玻璃效果 */
     border-radius: 8px;
     display: flex;
     justify-content: center;
@@ -49,6 +104,8 @@
     transition: .5s;
     transform-origin: 50% 100%;
     filter: hue-rotate(calc(var(--i) * 60deg));
+    backdrop-filter: blur(10px); /* 添加毛玻璃效果 */
+    -webkit-backdrop-filter: blur(10px); /* 兼容Safari */
 }
 
 /* 默认隐藏 .info 部分 */
@@ -144,4 +201,74 @@
 #worker .card .github-btn:hover {
     background-color: #555; /* 更改悬停时的背景颜色 */
     color: white; /* 保持文字颜色 */
+}
+
+#home .left-card-1,
+#home .left-card-2,
+#home .left-card-3,
+#home .right-card-1,
+#home .right-card-2 {
+    background: rgba(255, 255, 255, 0.4); /* 白色背景，带有透明度 */
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px); /* 毛玻璃效果，数值越大模糊度越高 */
+    -webkit-backdrop-filter: blur(10px); /* Safari 支持 */
+    transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+    will-change: transform; /* 优化渲染 */
+    backface-visibility: hidden; /* 处理模糊问题 */
+    max-height: 450px;
+}
+
+#home .left-card-3-1,
+#home .left-card-3-2 {
+    background: rgba(255, 255, 255, 0.4); /* 白色背景，带有透明度 */
+    color: black;
+    padding: 5px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px); /* 毛玻璃效果，数值越大模糊度越高 */
+    -webkit-backdrop-filter: blur(10px); /* Safari 支持 */
+    transition: transform 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 轻微阴影 */
+    will-change: transform; /* 优化渲染 */
+    backface-visibility: hidden; /* 处理模糊问题 */
+}
+
+/* 悬停时的放大效果和阴影 */
+#home .left-card-1:hover,
+/*
+#home .left-card-2:hover,
+#home .left-card-3:hover,
+#home .right-card-1:hover,
+*/
+#home .right-card-2:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.scrollable-content {
+    max-height: 400px; /* 设置最大高度，可根据需要调整 */
+    overflow-y: auto;  /* 启用垂直滚动 */
+    padding-right: 10px; /* 防止滚动条覆盖内容 */
+}
+
+/* 定义滚动条的宽度或高度 */
+::-webkit-scrollbar {
+    width: 8px; /* 纵向滚动条的宽度 */
+    height: 8px; /* 横向滚动条的高度 */
+}
+/* 滚动条的轨道 */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* 轨道颜色 */
+    border-radius: 10px; /* 轨道圆角 */
+}
+/* 滚动条的滑块 */
+::-webkit-scrollbar-thumb {
+    background: #888; /* 滑块颜色 */
+    border-radius: 10px; /* 滑块圆角 */
+}
+/* 滑块在 hover 状态下的颜色 */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* 滑块 hover 颜色 */
 }
