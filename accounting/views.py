@@ -5,7 +5,7 @@ from django.http import JsonResponse
 from django.contrib.auth.models import User
 import datetime
 
-from .forms import HistoryRecordForm
+from .forms import HistoryRecordForm,TransferRecordForm
 import decimal
 from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import authenticate, logout
@@ -169,6 +169,9 @@ def index(request):
         return render(request, 'accounting/index.html', context)
     else:
         return render(request, 'accounting/index.html')
+
+def transfer_between_accounts(request):
+    pass
 
 def retrieve_category(request):
     if request.user.is_authenticated:

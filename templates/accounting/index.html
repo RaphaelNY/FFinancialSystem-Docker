@@ -39,7 +39,7 @@
 <!--                <h3>在这里记账</h3>-->
 <!--                <p>这里会展示资金账户和当月记账详细信息</p>-->
                  <div class="row">
-                    <div class="col-lg-4 mb-4">
+                    <div class="col-lg-5 mb-5">
                         <div id="month-overview" align="center">
                             <span>当月结余</span>
                             <h5 id="month-surplus">{{ surplus }}(元)</h5>
@@ -68,8 +68,57 @@
                                 {% endfor %}
                             </ul>
                         </div>
+                        <hr width="90%" />
+                        <form action="{% url 'transfer_between_accounts' %}" method="post" class="transfer-record-form">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <select class="custom-select" id="from-account-list" name="from_account">
+                                        {% for a in accounts %}
+                                        <option value="{{ a.id }}">{{ a.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <input type="text" oninput="value=value.replace(/[^\d.]/g,'')" name="amount" aria-label="Transfer Money Amount" placeholder="金额" class="form-control" required="">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <input type="text" name="comment" aria-label="Comment" placeholder="备注" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3">
+                                    <input id="transfer-time-occurrence" name="time_of_occurrence" type="text" class="form-control">
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <button type="submit" class="btn btn-info btn-block">转移到</button>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <select class="custom-select" id="to-account-list" name="to_account">
+                                        {% for a in accounts %}
+                                        <option value="{{ a.id }}">{{ a.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                        <hr width="90%" />
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <select class="custom-select" id="years-filter">
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <select class="custom-select" id="months-filter">
+                                </select>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <button id="show-custom-record" class="btn btn-info btn-block" type="submit">筛选</button>
+                            </div>
+                        </div>
+                        <hr width="90%" class="main-separator"/>
                     </div>
-                    <div class="col-lg-8 mb-8" id="history-records-overview" align="center">
+                    <div class="col-lg-7 mb-7" id="history-records-overview" align="center">
                          <form action="{% url 'record_income_expense' %}" method="post" class="history-record-form">
                             {% csrf_token %}
                             <div class="form-row">
@@ -122,7 +171,20 @@
                                 </div>
                             </div>
                         </form>
-                        <br>
+                        <hr width="90%" class="main-separator"/>
+                        <div class="form-row">
+                                <div class="col-md-6 mb-3">
+                                    <input type="text" name="search-key" aria-label="search" placeholder="输入内容搜索账单" class="form-control">
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <button class="btn btn-block btn-info my-2 my-sm-0" id="search-record" type="submit"><i class="fa fa-search" aria-hidden="true">搜索账单</i></button>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a class="btn btn-block btn-info my-2 my-sm-0" href="/accounting" >回到主页</a>
+                                </div>
+                            </div>
+
+                        <hr width="90%" />
                         <h5>当月账单列表</h5>
                         <hr width="90%" class="main-separator"/>
                         <div id="record-list">
@@ -449,6 +511,10 @@
 <script>
     $("#time-occurrence").attr("value", getCurrentDateFormat());
     $("#time-occurrence").datetimepicker( {
+        format:'Y-m-d H:i',
+    });
+    $("#transfer-time-occurrence").attr("value", getCurrentDateFormat());
+    $("#transfer-time-occurrence").datetimepicker( {
         format:'Y-m-d H:i',
     });
 </script>
