@@ -19,18 +19,18 @@
 <body>
     {% if user.is_authenticated %}
     <div class="container" id="top-container">
-        <ul class="nav nav-tabs justify-content-center" role="tablist">
+        <ul class="nav nav-pills justify-content-center" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" data-toggle="tab" href="#home" id="home-nav">记账</a>
+                <a class="nav-link active nav-forms" data-toggle="tab" href="#home" id="home-nav">记账</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#charts">图表</a>
+                <a class="nav-link nav-forms" data-toggle="tab" href="#charts">图表</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#info" id="info-nav">分析</a>
+                <a class="nav-link nav-forms" data-toggle="tab" href="#info" id="info-nav">分析</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" data-toggle="tab" href="#worker" id="worker-nav">worker</a>
+                <a class="nav-link nav-forms" data-toggle="tab" href="#worker" id="worker-nav">worker</a>
             </li>
         </ul>
 
@@ -55,7 +55,7 @@
                                     <h6 id="month-expense">{{ current_month_expense }}(元)</h6>
                                 </div>
                             </div>
-                            <hr width="100%" style="border:1px solid #FFD700;"/>
+                            <hr width="100%" style="border:1px solid #425273;"/>
                             <div id="account-overview" align="center">
                                 <ul class="list-group">
                                     {% for account in accounts %}
@@ -69,7 +69,6 @@
                                     {% endfor %}
                                 </ul>
                             </div>
-                            <hr width="100%" />
                         </div>
                         <br>
                         <div class="card border-0 shadow left-card-2" id="left-card-2">
@@ -95,7 +94,7 @@
                                         <input id="transfer-time-occurrence" name="time_of_occurrence" type="text" class="form-control">
                                     </div>
                                     <div class="col-md-4">
-                                        <button type="submit" class="btn btn-info btn-block">转移到</button>
+                                        <button type="submit" class="btn btn-info btn-block btn-left-2-1">转移到</button>
                                     </div>
                                     <div class="col-md-4">
                                         <select class="custom-select" id="to-account-list" name="to_account">
@@ -117,12 +116,12 @@
                                         </div>
                                         <div class="form-row">
                                             <div class="col-md-6">
-                                                <button class="btn btn-block btn-info my-2 my-sm-0" id="search-record" type="submit">
-                                                    <i class="fa fa-search" aria-hidden="true">搜索账单</i>
+                                                <button class="btn btn-block btn-info my-2 my-sm-0 btn-left-3-1-1" id="search-record" type="submit">
+                                                    <i class="fa fa-search " aria-hidden="true">搜索账单</i>
                                                 </button>
                                             </div>
                                             <div class="col-md-6">
-                                                <a class="btn btn-block btn-info my-2 my-sm-0" href="/accounting">回到主页</a>
+                                                <a class="btn btn-block btn-info my-2 my-sm-0 btn-left-3-1-2" href="/accounting">回到主页</a>
                                             </div>
                                         </div>
                                 </div>
@@ -138,7 +137,7 @@
                                             </select>
                                         </div>
                                         <div class="col-md-4">
-                                            <button id="show-custom-record" class="btn btn-info btn-block" type="submit">筛选</button>
+                                            <button id="show-custom-record" class="btn btn-info btn-block btn-left-3-2" type="submit">筛选</button>
                                         </div>
                                     </div>
                                 </div>
@@ -195,7 +194,7 @@
                                     <input id="time-occurrence" name="time_of_occurrence" type="text" class="form-control">
                                 </div>
                                 <div class="col-md-8 mb-3">
-                                    <button type="submit" class="btn btn-info btn-block">记录账单</button>
+                                    <button type="submit" class="btn btn-info btn-block btn-right-4-1">记录账单<img src="/static/img/hand.png" alt="Hand" class="btn-image"></button>
                                 </div>
                             </div>
                         </form>
