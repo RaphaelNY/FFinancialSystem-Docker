@@ -427,6 +427,7 @@
 <script>$.ajaxSetup({headers: {"X-CSRFToken": '{{ csrf_token }}'}});</script>
 <script>
     $(function () {
+        document.querySelector('body').classList.add('no-scroll');
         var init_ie_type = 'expense'
         var init_category_type = '餐饮'
         $("#ie-type-list").find(`option[value=${init_ie_type}]`).attr("selected", true);
