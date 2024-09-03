@@ -174,7 +174,10 @@ def index(request):
             months_with_expense_count = Decimal(months_with_expense_count)
 
             # 计算平均月支出，仅处理有支出记录的月份
-            average_monthly_expense = Decimal(year_total_expense / months_with_expense_count)
+            if months_with_expense_count != 0:
+                average_monthly_expense = Decimal(year_total_expense / months_with_expense_count)
+            else:
+                average_monthly_expense = 0
         if selected_month_expense > average_monthly_expense * Decimal('1.3'):
             # 查找当前月份支出占比最高的分类
             highest_expense_category = HistoryRecord.objects.filter(
