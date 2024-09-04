@@ -253,6 +253,22 @@ body::before {
     color: white; /* 保持文字颜色 */
 }
 
+#worker .title-card {
+    background: rgba(255, 255, 255, 0.2); /* 半透明的白色背景 */
+    backdrop-filter: blur(10px); /* 毛玻璃效果 */
+    border-radius: 15px; /* 圆角 */
+    padding: 20px; /* 内边距 */
+    max-width: 300px; /* 最大宽度 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 轻微的阴影 */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* 边框 */
+    text-align: center; /* 文本居中 */
+    transition: transform 0.2s; /* 悬停时的过渡效果 */
+}
+
+#worker .title-card:hover {
+    transform: scale(1.05); /* 悬停时放大 */
+}
+
 #home .left-card-1,
 #home .left-card-2,
 #home .left-card-3,
@@ -532,8 +548,10 @@ body::before {
 }
 .card-gradient-4:hover {
     transform: scale(1.06); /* 鼠标悬停时放大卡片 */
-.card-link {
-    color: #cddc39;
+
+    .card-link {
+        color: #cddc39;
+    }
 }
 
 .card-link:hover {
