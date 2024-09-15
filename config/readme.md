@@ -13,6 +13,8 @@
   "db_name": "your_database_name", //你的数据库名称
   "mysql_usr": "user_name", //你的数据库登录用户名
   "mysql_pass": "user_password" //你的数据库登录密码
+  "mysql_host": "your_host", //你的数据库host
+  "mysql_port": "your_port" //你的数据库服务端口
 }
 ```
 
