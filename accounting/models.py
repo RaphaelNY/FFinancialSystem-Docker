@@ -1,4 +1,3 @@
-from Tools.i18n.msgfmt import usage
 from django.db import models
 from django.utils import timezone
 

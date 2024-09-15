@@ -320,16 +320,40 @@ body::before {
 }
 
 /* 悬停时的放大效果和阴影 */
-#home .left-card-1:hover
 /*
+#home .left-card-1:hover
 #home .left-card-2:hover,
 #home .left-card-3:hover,
 #home .right-card-1:hover,
-
-#home .right-card-2:hover */
+#home .right-card-2:hover
 {
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+*/
+.list-group-1 {
+    max-height: 150px; /* 设置最大高度，可根据需要调整 */
+    overflow-y: auto;  /* 启用垂直滚动 */
+    padding-right: 10px; /* 防止滚动条覆盖内容 */
+}
+/* 定义滚动条的宽度或高度 */
+::-webkit-scrollbar {
+    width: 8px; /* 纵向滚动条的宽度 */
+    height: 8px; /* 横向滚动条的高度 */
+}
+/* 滚动条的轨道 */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* 轨道颜色 */
+    border-radius: 10px; /* 轨道圆角 */
+}
+/* 滚动条的滑块 */
+::-webkit-scrollbar-thumb {
+    background: #888; /* 滑块颜色 */
+    border-radius: 10px; /* 滑块圆角 */
+}
+/* 滑块在 hover 状态下的颜色 */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* 滑块 hover 颜色 */
 }
 
 .scrollable-content {
