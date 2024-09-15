@@ -34,7 +34,7 @@
             <li class="nav-item">
                 <a class="nav-link nav-forms" data-toggle="tab" href="#worker" id="worker-nav">关于</a>
             </li>
-            {% if user.is_superuser %}
+            {% if user.is_staff or user.is_superuser %}
             <li class="nav-item">
                 <a class="nav-link nav-forms" href="/admin/accounting/" id="admin-nav">管理</a>
             </li>
