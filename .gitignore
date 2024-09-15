@@ -5,3 +5,4 @@
 /static/css/test.css
 /static/js/test.js
 __pycache__/
+/accounting/migrations/
