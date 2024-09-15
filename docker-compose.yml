@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  web:
+    container_name: ffsystem
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    working_dir: /app
+    ports:
+      - "8000:8000"
+    networks:
+      - 1panel-network
+
+networks:
+  1panel-network:
+    external: true
