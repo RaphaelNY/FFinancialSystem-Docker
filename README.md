@@ -1,3 +1,8 @@
+# FamilyFinancialSystem-Docker
+
+本项目用于打包项目为docker，便于拉取部署
+
+---- 
 # FamilyFinancialSystem
 
 - 本项目使用 BootStrap + Django + Mysql, Echarts🤗
