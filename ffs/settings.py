@@ -85,8 +85,8 @@ DATABASES = {
         'NAME': STORED['db_name'],
         'USER': STORED['mysql_usr'],
         'PASSWORD': STORED['mysql_pass'],
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
+        'HOST': STORED['mysql_host'],
+        'PORT': STORED['mysql_port'],
         'OPTIONS': {
             'charset': 'utf8mb4',
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
