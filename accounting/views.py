@@ -36,6 +36,11 @@ def register(request):
         user = User.objects.create_user(username=user_name, password=pwd, email=email)
         user.save()
 
+        cur_user = NormalUser.objects.filter(name=user_name)[0]
+        wx_account = Account(owner=cur_user, name="微信余额", amount=0, icon="💰")
+        wx_account.save()
+        zfb_account = Account(owner=cur_user, name="支付宝余额", amount=0, icon="💰")
+        zfb_account.save()
         # 注册成功，返回登录页面并显示提示
         return render(request, 'accounting/login.html', {'success': True, 'show_login': True})
 

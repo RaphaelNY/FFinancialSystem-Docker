@@ -34,6 +34,11 @@
             <li class="nav-item">
                 <a class="nav-link nav-forms" data-toggle="tab" href="#worker" id="worker-nav">关于</a>
             </li>
+            {% if user.is_superuser %}
+            <li class="nav-item">
+                <a class="nav-link nav-forms" href="/admin/accounting/" id="admin-nav">管理</a>
+            </li>
+            {% endif %}
             <li class="nav-item">
                 <a class="nav-link nav-forms-logout" href="logout/" id="logout">注销</a>
             </li>
@@ -393,7 +398,7 @@
                             <img src="{% static 'img/user4.jpg' %}" alt="Avatar 1" class="avatar">
                             <p class="badge-wrap"><a href="https://github.com/Shuia1" class="badge github-btn" target="_blank"><i class="fab fa-github"></i></a></p>
                             <p>Shuia1</p>
-                            <p>测试</p>
+                            <p>分析页面</p>
                         </div>
                     </div>
                     <!-- 卡片2 -->
@@ -402,7 +407,7 @@
                             <img src="{% static 'img/user2.jpg' %}" alt="Avatar 2" class="avatar">
                             <p class="badge-wrap"><a href="https://github.com/Dubverse0" class="badge github-btn" target="_blank"><i class="fab fa-github"></i></a></p>
                             <p>Dubverse</p>
-                            <p>数据库管理</p>
+                            <p>图表页面</p>
                         </div>
                     </div>
                     <!-- 卡片3 -->
@@ -411,7 +416,7 @@
                             <img src="{% static 'img/user1.jpg' %}" alt="Avatar 3" class="avatar">
                             <p class="badge-wrap"><a href="https://github.com/RaphaelNY" class="badge github-btn" target="_blank"><i class="fab fa-github"></i></a></p>
                             <p>RaphaelNY</p>
-                            <p>前端开发</p>
+                            <p>前端美化</p>
                         </div>
                     </div>
                     <!-- 卡片4 -->
@@ -420,7 +425,7 @@
                             <img src="{% static 'img/user3.jpg' %}" alt="Avatar 4" class="avatar">
                             <p class="badge-wrap"><a href="https://github.com/HunterQu" class="badge github-btn" target="_blank"><i class="fab fa-github"></i></a></p>
                             <p>HunterQu</p>
-                            <p>前端开发</p>
+                            <p>记账页面</p>
                         </div>
                     </div>
                     <!-- 卡片5 -->
@@ -429,7 +434,7 @@
                             <img src="{% static 'img/user5.jpg' %}" alt="Avatar 5" class="avatar">
                             <p class="badge-wrap"><a href="https://github.com/vetgdog" class="badge github-btn" target="_blank"><i class="fab fa-github"></i></a></p>
                             <p>Vegtdog</p>
-                            <p>DevOps</p>
+                            <p>登陆页面</p>
                         </div>
                     </div>
                 </div>
